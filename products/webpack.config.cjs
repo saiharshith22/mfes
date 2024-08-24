@@ -11,9 +11,12 @@ module.exports = {
       name: "products",
       filename: "remoteEntry.js",
       exposes: {
-        "./ProductsIndex": "./src/index",
+        // "./ProductsIndex": "./src/index",
+        // changed this to bootstrap since we are exporting mount fn from it
+        "./ProductsIndex": "./src/bootstrap",
         // we want to expose this index.js file to host
       },
+      shared: ["faker"],
     }),
     new HtmlWebpackPlugin({
       template: "./public/index.html",
